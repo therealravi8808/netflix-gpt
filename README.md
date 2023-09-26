@@ -6,6 +6,5 @@
 * Browse
   - Header
   - Main Movies
-        - Tailler in background
-        - Title & Description
-        
+        * Tailler in background
+        * Title & Description
