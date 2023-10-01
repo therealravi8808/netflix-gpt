@@ -1,10 +1,13 @@
 import React, { useState ,useRef} from 'react'
 import Header from './Header'
-import { checkValidaData } from '../utilis/validate';
+import { checkValidaData } from '../utilis/validate.js';
 
 const Login = () => {
 
+
+  const name=useRef(null)
 const [isSignInForm,setIsSignInForm]=useState(true);
+const [errorMessage,setErrorMessage]=useState(null);
 
 const email=useRef(null);
 const password=useRef(null);
@@ -12,10 +15,17 @@ const password=useRef(null);
 const handleButtonClick=()=>{
   //Validate the form data
 
-console.log(email.current.value);
-console.log(password.current.value);
- const massage=  checkValidaData(email.current.value,password.current.value);
-  console.log(massage);
+// console.log(email.current.value);
+// console.log(password.current.value);
+ const message=  checkValidaData(email.current.value,password.current.value);
+ setErrorMessage(message);
+
+//  Sign /Sign Up
+ 
+
+
+
+
 }
 
 const toggleSignInForm=()=>{
@@ -38,6 +48,7 @@ mx-auto right-0 left-0 text-white bg-opacity-60'>
   {isSignInForm ? "Sign Up":"Sign In"}</h1>
 
   {  isSignInForm && (<input
+  useRef={name}
      type='text' placeholder='Full Name '
       className='p-4 my-4 w-full bg-gray-700'/>
       )
@@ -57,6 +68,7 @@ mx-auto right-0 left-0 text-white bg-opacity-60'>
      type='password' placeholder='Password'
       className='p-4 my-4 w-full bg-gray-700'/>
 
+<p className='text-red-500 font-bold text-lg py-2'>{errorMessage}</p>
 
 <button className='py-4 my-4 bg-red-600 w-full
  rounded-3xl' onClick={handleButtonClick}>{isSignInForm ? "Sign Up":"Sign In"}</button>
