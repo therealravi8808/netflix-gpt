@@ -20,7 +20,14 @@ const handleButtonClick=()=>{
  const message=  checkValidaData(email.current.value,password.current.value);
  setErrorMessage(message);
 
+ if(!message){
+return ;
 //  Sign /Sign Up
+
+
+ }
+
+
  
 
 
