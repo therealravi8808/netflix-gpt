@@ -27,16 +27,21 @@ const handleButtonClick=()=>{
  
  if(!isSignInForm){
 //Sign UP logic
-createUserWithEmailAndPassword(auth, email, password)
+createUserWithEmailAndPassword(
+  auth,
+   email.current.value,
+   password.current.value
+   )
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
+    console.log(user);
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    // ..
+    setErrorMessage(errorCode + "-" + errorMessage);
   });
 
 
