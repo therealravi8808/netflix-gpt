@@ -1,7 +1,7 @@
 import React, { useState ,useRef} from 'react'
 import Header from './Header'
 import { checkValidaData } from '../utilis/validate.js';
-import {  createUserWithEmailAndPassword } from "firebase/auth";
+import {  createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../utilis/firebase";
 
 const Login = () => {
@@ -48,7 +48,17 @@ createUserWithEmailAndPassword(
  }
  else{
 //Sign In logic
-
+signInWithEmailAndPassword(auth, email.current.value,password.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user)
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMessage(errorCode+"-"+errorMessage);
+  });
 
 
  }
@@ -78,9 +88,9 @@ alt="logo"/>
  className='w-3/12 absolute p-12 bg-black my-36 
 mx-auto right-0 left-0 text-white bg-opacity-60'>
 <h1 className='font-bold text-3xl py-4'>
-  {isSignInForm ? "Sign Up":"Sign In"}</h1>
+  {isSignInForm ?"Sign In": "Sign Up"}</h1>
 
-  {  isSignInForm && (<input
+  {  !isSignInForm && (<input
   useRef={name}
      type='text' placeholder='Full Name '
       className='p-4 my-4 w-full bg-gray-700'/>
@@ -104,11 +114,11 @@ mx-auto right-0 left-0 text-white bg-opacity-60'>
 <p className='text-red-500 font-bold text-lg py-2'>{errorMessage}</p>
 
 <button className='py-4 my-4 bg-red-600 w-full
- rounded-3xl' onClick={handleButtonClick}>{isSignInForm ? "Sign Up":"Sign In"}</button>
+ rounded-3xl' onClick={handleButtonClick}>{isSignInForm ? "Sign In":"Sign Up"}</button>
 
 
 <p className='py-4 cursor-pointer' onClick={toggleSignInForm}>
-{isSignInForm ? "Already registered ? Sign In Now.. ":"New to Netflix ? Sign Up Now "
+{isSignInForm ? "New to Netflix ? Sign Up Now ":"Already registered ? Sign In Now.. "
 }</p>
 
 </form>
