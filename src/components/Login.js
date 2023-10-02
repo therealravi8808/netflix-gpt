@@ -1,6 +1,8 @@
 import React, { useState ,useRef} from 'react'
 import Header from './Header'
 import { checkValidaData } from '../utilis/validate.js';
+import {  createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../utilis/firebase";
 
 const Login = () => {
 
@@ -20,9 +22,28 @@ const handleButtonClick=()=>{
  const message=  checkValidaData(email.current.value,password.current.value);
  setErrorMessage(message);
 
- if(!message){
-return ;
-//  Sign /Sign Up
+ if(message) return;
+ //Sign In Sign Up Logic
+ 
+ if(!isSignInForm){
+//Sign UP logic
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+
+
+ }
+ else{
+//Sign In logic
+
 
 
  }
