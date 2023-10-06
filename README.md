@@ -13,6 +13,8 @@
  * Implement Sign In user API
  * Created Redux Store with userslice
  * Implemented sign Out 
+ * Update Profiles
+ * fetch TMDB API
 
 # Features
 
