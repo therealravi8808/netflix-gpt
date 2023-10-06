@@ -12,7 +12,7 @@
  * create singup in firebase user account
  * Implement Sign In user API
  * Created Redux Store with userslice
-  
+ * Implemented sign Out 
 
 # Features
 
