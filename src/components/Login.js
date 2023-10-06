@@ -3,6 +3,7 @@ import Header from './Header'
 import { checkValidaData } from '../utilis/validate.js';
 import {  createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../utilis/firebase";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
@@ -10,7 +11,7 @@ const Login = () => {
   const name=useRef(null)
 const [isSignInForm,setIsSignInForm]=useState(true);
 const [errorMessage,setErrorMessage]=useState(null);
-
+const navigate=useNavigate()
 const email=useRef(null);
 const password=useRef(null);
 
@@ -36,7 +37,7 @@ createUserWithEmailAndPassword(
     // Signed up 
     const user = userCredential.user;
     console.log(user);
-    // ...
+    navigate("/browse");
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -52,7 +53,8 @@ signInWithEmailAndPassword(auth, email.current.value,password.current.value)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user)
+    console.log(user);
+    navigate("/browse");
   })
   .catch((error) => {
     const errorCode = error.code;
