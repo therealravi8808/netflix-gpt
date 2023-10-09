@@ -45,9 +45,14 @@ createUserWithEmailAndPassword(
     }).then(() => {
       
       const {uid,email,displayName,photoURL} = auth.currentUser;
-      dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));
-      
-      navigate("/browse");
+      dispatch(
+        addUser({
+          uid:uid,
+          email:email,
+          displayName:displayName,
+          photoURL:photoURL
+        })
+        );
     }).catch((error) => {
      setErrorMessage(error.message); 
     });
