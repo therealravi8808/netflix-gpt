@@ -3,7 +3,7 @@ import Header from './Header'
 import { checkValidaData } from '../utilis/validate.js';
 import {  createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from "../utilis/firebase";
-
+import{USER_AVATAR} from "../utilis/constant";
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utilis/userSlice';
 
@@ -41,7 +41,7 @@ createUserWithEmailAndPassword(
     const user = userCredential.user;
     updateProfile(user, {
       displayName: name.current.value,
-       photoURL: "https://avatars.githubusercontent.com/u/87171097?v=4"
+       photoURL: USER_AVATAR
     }).then(() => {
       
       const {uid,email,displayName,photoURL} = auth.currentUser;
@@ -50,7 +50,7 @@ createUserWithEmailAndPassword(
           uid:uid,
           email:email,
           displayName:displayName,
-          photoURL:photoURL
+          photoURL:photoURL,
         })
         );
     }).catch((error) => {
