@@ -14,7 +14,8 @@
  * Created Redux Store with userslice
  * Implemented sign Out 
  * Update Profiles
- * fetch TMDB API
+ * BugFix: Sign Up user displayName and Profile picture update
+ * BugFix : if the user is not logged in redirect / browse to Login page and vice-versa
 
 # Features
 
