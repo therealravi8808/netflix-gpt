@@ -20,7 +20,7 @@
  * Add hardcoded values to the constants file.
  * Register for TMDB API & create an app & get access token
  * Get Dta from TMDB now playing movies list API.
- 
+ * 
 # Features
 
 * login/SignUp
