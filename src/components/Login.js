@@ -22,8 +22,7 @@ const password=useRef(null);
 const handleButtonClick=()=>{
   //Validate the form data
 
-// console.log(email.current.value);
-// console.log(password.current.value);
+
  const message=  checkValidaData(email.current.value,password.current.value);
  setErrorMessage(message);
 
