@@ -28,10 +28,10 @@
  * Update Store with Trailer Video Data
  * Embedded the Youtube Video and make it autoplay and mute
  * Tailwind 'Classes to make Main Container look awesome
+* Build Secondary Component
 
 
 
- 
 # Features
 
 * login/SignUp
