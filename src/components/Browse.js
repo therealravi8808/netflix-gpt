@@ -1,4 +1,5 @@
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
+import usePopularMovies from '../hooks/usePopularMovies';
 import Header from './Header'
 import SecondaryContainer from './SecondaryContainer';
 import MainContainer  from './mainContainer';
@@ -6,6 +7,7 @@ import MainContainer  from './mainContainer';
 
 const Browse = () => {
 useNowPlayingMovies();
+usePopularMovies();
 
   return (
     <div>
