@@ -7,6 +7,11 @@ const moviesSlice=createSlice({
 
         nowPlayingMovies:null,
         trailerVideo:null,
+        popularMovies:null,
+        trandingMovies:null,
+        upComingMovies:null,
+        topRatingMovies:null,
+        horrorMovies:null,
     },
     
     reducers:{
