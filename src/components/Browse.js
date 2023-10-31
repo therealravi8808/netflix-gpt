@@ -4,6 +4,7 @@ import usePopularMovies from '../hooks/usePopularMovies';
 import useTopRatingMovies from '../hooks/useTopRatingMovies';
 import useTrandingMovies from '../hooks/useTrandingMovies';
 import useUpcomingMovies from '../hooks/useUpcomingMovies';
+import GptSearch from './GptSearch';
 import Header from './Header'
 import SecondaryContainer from './SecondaryContainer';
 import MainContainer  from './mainContainer';
@@ -20,6 +21,7 @@ useHorrorMovies();
   return (
     <div>
       <Header/>
+      <GptSearch/>
      <MainContainer/>
      <SecondaryContainer/>
       
