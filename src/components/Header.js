@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../utilis/userSlice';
 import { LOGO } from '../utilis/constant';
+import { toggleGptSearchView } from '../utilis/gptSlice';
 
 const Header = () => {
    const dispatch=useDispatch();
@@ -46,10 +47,11 @@ const Header = () => {
     // Unsubscribe when component unamounts
 return ()=>unsubscribe();
 
-  },[]);
+  }, []);
 
 const handleGptSearchClick=()=>{
   //Toggle GPT Search 
+dispatch(toggleGptSearchView());
 }
 
   return (
