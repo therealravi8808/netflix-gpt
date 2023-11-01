@@ -3,7 +3,7 @@ import Header from './Header'
 import { checkValidaData } from '../utilis/validate.js';
 import {  createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from "../utilis/firebase";
-import{USER_AVATAR} from "../utilis/constant";
+import{BG_LOGIN_URL, USER_AVATAR} from "../utilis/constant";
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utilis/userSlice';
 
@@ -100,7 +100,8 @@ setIsSignInForm(!isSignInForm);
     <div>
         <Header/>
         <div className='absolute'>
-        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/f85718e8-fc6d-4954-bca0-f5eaf78e0842/ea44b42b-ba19-4f35-ad27-45090e34a897/IN-en-20230918-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+        <img src=
+        {BG_LOGIN_URL}
 alt="logo"/>
 </div> 
 
