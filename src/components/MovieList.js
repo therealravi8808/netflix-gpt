@@ -2,7 +2,7 @@ import React from 'react'
 import MovieCard from './MovieCard'
 
 const MovieList = ({title,movies}) => {
-console.log(movies);
+
 // const myArray = movies?.map(item => item.someProperty);
 
   return (
