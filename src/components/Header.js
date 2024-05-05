@@ -79,7 +79,7 @@ const Header = () => {
  text-white rounded-lg "
             onClick={handleGptSearchClick}
           >
-            GPT Search
+            {showGptSearch?"HomePage": " GPT Search"}
           </button>
           <img className="w-7 h-7 " alt="usericon" src={user?.photoURL} />
           <button onClick={handleSignOut} className="font-bold text-white">
