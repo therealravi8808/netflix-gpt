@@ -6,7 +6,7 @@ import { API_OPTIONS } from "../utilis/constant";
 import { addGptMovieResult } from "../utilis/gptSlice";
 
 const GptSearchBar = () => {
-   const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const langKey = useSelector((store) => store.config.lang);
   // search movies in tmdb database
   const searchMovieTMDB = async (movie) => {
@@ -16,7 +16,7 @@ const GptSearchBar = () => {
         "&include_adult=false&language=en-US&page=1",
       API_OPTIONS
     );
-const json=await data.json()
+    const json = await data.json();
 
     return json.results;
   };
@@ -44,14 +44,15 @@ const json=await data.json()
     console.log(gptResults.choices?.[0]?.message?.content);
 
     const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
-     
-    const promiseArray=gptMovies.map(movie=> searchMovieTMDB(movie));
-    //[Promise,Promise,Promise,Promise,Promise]
-     
-    const tmdbResults=await Promise.all(promiseArray);
-    console.log(tmdbResults);
-   dispatch(addGptMovieResult({movieName:gptMovies ,movieResults:tmdbResults}));
 
+    const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
+    //[Promise,Promise,Promise,Promise,Promise]
+
+    const tmdbResults = await Promise.all(promiseArray);
+    console.log(tmdbResults);
+    dispatch(
+      addGptMovieResult({ movieName: gptMovies, movieResults: tmdbResults })
+    );
   };
 
   return (
