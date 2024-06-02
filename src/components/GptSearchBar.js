@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
 import lang from "../utilis/languageConstants";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import openai from "../utilis/openai";
 import { API_OPTIONS } from "../utilis/constant";
+import { addGptMovieResult } from "../utilis/gptSlice";
 
 const GptSearchBar = () => {
+   const dispatch=useDispatch();
   const langKey = useSelector((store) => store.config.lang);
   // search movies in tmdb database
   const searchMovieTMDB = async (movie) => {
@@ -43,8 +45,13 @@ const json=await data.json()
 
     const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
      
-    const data=gptMovies.map(movie=> searchMovieTMDB(movie));
-  
+    const promiseArray=gptMovies.map(movie=> searchMovieTMDB(movie));
+    //[Promise,Promise,Promise,Promise,Promise]
+     
+    const tmdbResults=await Promise.all(promiseArray);
+    console.log(tmdbResults);
+   dispatch(addGptMovieResult({movieName:gptMovies ,movieResults:tmdbResults}));
+
   };
 
   return (
