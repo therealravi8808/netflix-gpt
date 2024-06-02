@@ -37,7 +37,7 @@
 * GPT search Feature/page
 * GPT Search Bar
 * (Features )Multi-Language Features in our APP
-* Integrate GPT APIs/
+* Integrate GPT APIs
 
 
 
