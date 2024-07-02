@@ -25,6 +25,7 @@ const GptSearchBar = () => {
 
   const handleGptSearchClick = async () => {
     console.log = searchText.current.value;
+    
     //Make an API call to GPT API and Movies Result
 
     const gptQuery =
